@@ -15,22 +15,35 @@ const NavBar = () => {
       
       
     return (
-        <nav className="text-black p-6 bg-red-400 ">
-            <div className="md:hidden text-2xl" onClick={()=> setOpen(!open)} >
+        <nav className="text-black p-6 bg-gray-400 ">
+            {/* navbar background color and ul background color same na dile problem hoy */}
+         
+            <div className=" md:hidden text-2xl" onClick={()=> setOpen(!open)}>
+                
                 {
-                    open === true? <AiOutlineClose ></AiOutlineClose> : <AiOutlineMenuUnfold ></AiOutlineMenuUnfold>
+                    open === true?
+                        <AiOutlineClose ></AiOutlineClose> 
+                        : <AiOutlineMenuUnfold ></AiOutlineMenuUnfold>
                 }
-            
+
             </div>
-            <ul className={`md:flex  bg-gray-400 px-6 duration-1000 absolute md:static
-            ${open? 'top-16' : '-top-40'}
+
+            <ul className={`md:flex   duration-1000 absolute md:static
+            ${open? 'top-16' : '-top-60'} bg-gray-400 px-6 
              `}>
-            {
-                routes.map(route => <Link key={route.id} route={route}></Link>)
-            }
+                
+                {
+                    routes.map(route => <Link key={route.id} route={route}></Link>)
+                }
             </ul>
+
+
         </nav>
     );
+
+    
 };
 
 export default NavBar;
+
+ 
